@@ -3,43 +3,43 @@ import random
 class Student:
     def __init__(self, name):
         self.name = name
-        self.gladness = 50
-        self.progress = 0
+        self.rest = 50
+        self.eat = 0
         self.alive = True
 
 
     def to_study(self):
-        print("Time to study")
-        self.progress += 0.12
-        self.gladness -= 5
+        print("Cat life")
+        self.eat += 0.12
+        self.rest -= 5
 
 
     def to_sleep(self):
-        print("I will sleep")
-        self.gladness += 3
+        print("Cat will sleep")
+        self.rest += 3
 
 
     def to_chill(self):
         print("Rest time")
-        self.gladness += 5
-        self.progress -= 0.1
+        self.rest += 5
+        self.eat -= 0.1
 
 
     def is_alive(self):
-        if self.progress < -0.5:
-            print("Cast out…")
+        if self.eat < -0.5:
+            print("Bad mood")
             self.alive = False
-        elif self.gladness <= 0:
-            print("Depression…")
+        elif self.rest <= 0:
+            print("No interest")
             self.alive = False
-        elif self.progress > 5:
-            print("Passed externally…")
+        elif self.eat > 5:
+            print("Good life")
             self.alive = False
 
 
     def end_of_day(self):
-        print(f"Gladness = {self.gladness}")
-        print(f"Progress = {round(self.progress, 2)}")
+        print(f"Rest = {self.rest}")
+        print(f"Eat = {round(self.eat, 2)}")
 
 
     def live(self, day):
@@ -59,7 +59,7 @@ class Student:
         self.is_alive()
 
 
-nick = Student(name="Nick")
+nick = Student(name="Cat")
 
 for day in range(365):
     if nick.alive:
