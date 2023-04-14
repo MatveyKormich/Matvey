@@ -16,3 +16,14 @@ def calculate(expression):
 
 
 calculate("2+2")
+
+"""
+>>> 2+2 == 4
+True
+"""
+
+"""
+>>> 2+2 == 6
+False
+"""
+
