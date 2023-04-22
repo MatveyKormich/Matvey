@@ -20,6 +20,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 temperature = float(soup.find('span', class_='t').text)
 
+
 now = datetime.now()
 
 date = now.strftime('%Y-%m-%d')
