@@ -1,23 +1,37 @@
 import random
 
+def eat(function):
+    def wrapped(*args):
+        for fish, meat, milk in args:
+            if not isinstance(fish, meat, milk, int):
+                raise ValueError('Кот останется без еды')
+            return function(*args)
+
+    return wrapped
+@typed_eat
 class Student:
     def __init__(self, name):
         self.name = name
         self.rest = 50
         self.eat = 0
+        self.walk = 25
         self.alive = True
 
 
-    def to_study(self):
-        print("Cat life")
+    def to_eat(self):
+        print("Dog life")
         self.eat += 0.12
         self.rest -= 5
 
 
     def to_sleep(self):
-        print("Cat will sleep")
+        print("Dog will sleep")
         self.rest += 3
 
+    def to_walk(self):
+        print("Dog will walk")
+        self.walk += 3
+        self.eat -= 0.1
 
     def to_chill(self):
         print("Rest time")
@@ -30,12 +44,19 @@ class Student:
             print("Bad mood")
             self.alive = False
         elif self.rest <= 0:
-            print("No interest")
+            print("tired")
+        elif self.rest >= 100:
+            print("full of energy")
             self.alive = False
-        elif self.eat > 5:
+        elif self.eat > 2:
             print("Good life")
             self.alive = False
-
+        elif self.walk > 75:
+            print("Good life")
+            self.alive = False
+        elif self.walk < 75:
+            print("tired")
+            self.alive = False
 
     def end_of_day(self):
         print(f"Rest = {self.rest}")
@@ -54,12 +75,14 @@ class Student:
             self.to_sleep()
         elif live_cube == 3:
             self.to_chill()
+        elif live_cube == 4:
+            self.to_walk()
 
         self.end_of_day()
         self.is_alive()
 
 
-nick = Student(name="Cat")
+nick = Student(name="Dog")
 
 for day in range(365):
     if nick.alive:
