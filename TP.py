@@ -1,15 +1,23 @@
 import random
 
+print('')
+
+fog = input('Что даш коту: ')
 def eat(function):
     def wrapped(*args):
-        for fish, meat, milk in args:
-            if not isinstance(fish, meat, milk, int):
-                raise ValueError('Кот останется без еды')
-            return function(*args)
+        for arg in args:
+            if not isinstance(arg, fog):
+                raise ValueError('Кот останется без еды ')
+        return function(*args)
 
     return wrapped
-@typed_eat
-class Student:
+
+
+
+@eat
+
+
+class Dog:
     def __init__(self, name):
         self.name = name
         self.rest = 50
@@ -17,12 +25,10 @@ class Student:
         self.walk = 25
         self.alive = True
 
-
     def to_eat(self):
         print("Dog life")
         self.eat += 0.12
         self.rest -= 5
-
 
     def to_sleep(self):
         print("Dog will sleep")
@@ -37,7 +43,6 @@ class Student:
         print("Rest time")
         self.rest += 5
         self.eat -= 0.1
-
 
     def is_alive(self):
         if self.eat < -0.5:
@@ -54,14 +59,11 @@ class Student:
         elif self.walk > 75:
             print("Good life")
             self.alive = False
-        elif self.walk < 75:
-            print("tired")
-            self.alive = False
 
     def end_of_day(self):
         print(f"Rest = {self.rest}")
         print(f"Eat = {round(self.eat, 2)}")
-
+        print(f"Walk = {round(self.walk, 1)}")
 
     def live(self, day):
         day = "Day" + str(day) + "of" + self.name + "life"
@@ -82,7 +84,7 @@ class Student:
         self.is_alive()
 
 
-nick = Student(name="Dog")
+nick = Dog(name="Dog")
 
 for day in range(365):
     if nick.alive:
