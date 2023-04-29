@@ -1,21 +1,30 @@
 
+def checker(function):
+    def checker(*args, **kwargs): # передаём параметры
+        try:
+            result = function(*args, **kwargs)# пробуем получить результат от функции calculate
+        except Exception as exc:# любое исключение
+            print(f"No have problems {exc}")# если всё хорошо
+        else:
+            print(f"No problems. Result - {result}") # если что-то не так
 
-a = input('Какую еду дать коту: ')
-b = input('Что даш попить коту: ')
-    if a = fish
-        print
-
-def eat(function):
-    def wrapped(*args):
-        for arg in args:
-            if not isinstance(arg, fog):
-                raise ValueError('Кот останется без еды ')
-        return function(*args)
-
-    return wrapped
+    return checker
 
 
+@checker
+def calculate(expression): # функция
+    return eval(expression)
 
-@eat
+
+calculate('2+2*4/4')
+calculate('2**5-n')# n - непонятное число
+
+
+
+
+
+
+
+
 
 
